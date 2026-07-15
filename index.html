@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAMMERSTICK Journal — The High Striker Hammer Game Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/hammer.css">
+</head>
+<body>
+
+<!-- ICON SPRITE -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-hammer" viewBox="0 0 24 24"><path d="M14.5 3.5 21 10l-2.5 2.5-6.5-6.5z"/><path d="M13 8 4 17l-1 4 4-1 9-9"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M10 21a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 4H4v2a4 4 0 0 0 4 4M16 4h4v2a4 4 0 0 1-4 4"/><path d="M12 13v4M9 21h6M9 21a3 3 0 0 1 0-4h6a3 3 0 0 1 0 4"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-4M8 6l1 2M16 6l-1 2"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-2"/><rect x="6" y="14" width="12" height="7"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.3"/><circle cx="18" cy="6" r="2.3"/><circle cx="18" cy="18" r="2.3"/><path d="M8 10.8l8-4.6M8 13.2l8 4.6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l14 8-14 8z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="8" r="2.6"/><path d="M15.5 14.2c2.6.5 4.5 2.5 4.5 5.8"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></symbol>
+  <symbol id="i-vr" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="3"/><circle cx="8" cy="12" r="1.6"/><circle cx="16" cy="12" r="1.6"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M6 8l-3 6a3 3 0 0 0 6 0zM18 8l-3 6a3 3 0 0 0 6 0zM7 4h10"/></symbol>
+  <symbol id="i-mini" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 15V9l3 3 3-3v6"/></symbol>
+</svg>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark"><svg viewBox="0 0 24 24"><use href="#i-hammer"/></svg></div>
+      HAMMERSTICK <span class="mono" style="color:var(--muted); font-weight:400; font-size:12px; margin-left:2px;">/journal</span>
+    </div>
+    <div class="nav-links">
+      <a href="#history">History</a>
+      <a href="#types">Types</a>
+      <a href="#live">Live Demo</a>
+      <a href="#choosing">Choosing One</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="nav-cta" href="#live">Take a swing ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> HAMMERSTICK JOURNAL · HIGH STRIKER GAME GUIDE</span>
+      <h1>Swing hard.<br> <span>Ring the bell.</span></h1>
+      <p class="lead">One mallet, one pad, one shot at glory. The hammer stick — better known as the high striker — turns raw strength into a rocketing puck, a climbing scoreboard, and a bell that only the strongest swing ever reaches.</p>
+      <div class="meta-row">
+        <span><svg class="icon" style="width:14px;height:14px"><use href="#i-clock"/></svg> 9 min read</span>
+        <span><svg class="icon" style="width:14px;height:14px"><use href="#i-hammer"/></svg> Carnival Games</span>
+        <span><svg class="icon" style="width:14px;height:14px"><use href="#i-sparkle"/></svg> Buyer's Guide</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#live">Try the live swing <svg class="icon" style="width:16px;height:16px"><use href="#i-play"/></svg></a>
+        <a class="btn btn-ghost" href="#types">Explore the types</a>
+      </div>
+      <div class="tag-row">
+        <span class="pill">#HighStriker</span>
+        <span class="pill">#TestYourStrength</span>
+        <span class="pill">#CarnivalGames</span>
+      </div>
+    </div>
+
+    <div class="striker-stage" id="heroStage">
+      <div class="striker-float">
+        <div class="striker-tilt" id="heroTilt">
+          <div class="tower-pole" id="heroPole">
+            <div class="tower-bell" id="heroBell"><svg class="icon" style="width:14px;height:14px;stroke:#3a2400"><use href="#i-bell"/></svg></div>
+            <div class="scale-seg top-seg" style="bottom:272px;"></div>
+            <div class="scale-seg" style="bottom:242px;"></div>
+            <div class="scale-seg" style="bottom:212px;"></div>
+            <div class="scale-seg" style="bottom:182px;"></div>
+            <div class="scale-seg" style="bottom:152px;"></div>
+            <div class="scale-seg" style="bottom:122px;"></div>
+            <div class="scale-seg" style="bottom:92px;"></div>
+            <div class="scale-seg" style="bottom:62px;"></div>
+            <div class="scale-seg" style="bottom:32px;"></div>
+            <div class="scale-seg" style="bottom:2px;"></div>
+            <div class="tower-puck" id="heroPuck"></div>
+          </div>
+          <div class="striker-base">
+            <div class="striker-pad"></div>
+            <div class="base-plaque">TEST YOUR MIGHT</div>
+          </div>
+          <div class="striker-hammer" id="heroHammer" onclick="swingHammer('hero')">
+            <div class="hammer-handle"></div>
+            <div class="hammer-head"></div>
+          </div>
+          <div class="impact-flash" id="heroImpact"></div>
+          <div class="sparkle-field" id="heroSparkles"></div>
+        </div>
+      </div>
+      <div class="score-panel">
+        <div class="score-value" id="heroScore">000</div>
+        <div class="score-tier" id="heroTier">Ready to swing</div>
+      </div>
+      <div class="striker-hint" onclick="swingHammer('hero')"><svg class="icon" style="width:14px;height:14px"><use href="#i-hammer"/></svg> Click the hammer to swing</div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- DEFINITION -->
+<section id="definition">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow pink"><span class="dot"></span> Definition</span>
+      <h2>So, what exactly is a hammer stick game?</h2>
+      <p>Strip away the carnival lights and it's a beautifully simple machine: one big swing, converted honestly into one big number.</p>
+    </div>
+    <div class="def-card reveal">
+      <div>
+        <h3>A mallet, a pad, and a tower that never lies.</h3>
+        <p>A hammer stick — or high striker — is a tall tower topped with a bell, fronted by a striking pad connected to a spring or sensor mechanism. A player swings a mallet down onto the pad with as much force as they can generate, and a weighted puck rockets up a graduated scale in direct proportion to the strength of the hit.</p>
+        <p style="margin-top:14px;">Land a strong enough swing and the puck reaches the top, rings the bell, and cements bragging rights for the rest of the night. Miss the mark and the puck falls just as honestly as it rose.</p>
+      </div>
+      <ul class="def-list">
+        <li><svg class="icon" style="width:18px;height:18px"><use href="#i-check"/></svg> A tall graduated scale tower with a bell at the top</li>
+        <li><svg class="icon" style="width:18px;height:18px"><use href="#i-check"/></svg> A striking pad linked to a spring or force sensor</li>
+        <li><svg class="icon" style="width:18px;height:18px"><use href="#i-check"/></svg> A weighted puck that rises in proportion to swing force</li>
+        <li><svg class="icon" style="width:18px;height:18px"><use href="#i-check"/></svg> Tiered scoring labels from "weakling" to "legendary"</li>
+        <li><svg class="icon" style="width:18px;height:18px"><use href="#i-check"/></svg> A satisfying bell, chime, or light show on a max hit</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section id="history">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> History</span>
+      <h2>From strongman sideshow to app-connected arcade</h2>
+      <p>Few carnival games have aged as gracefully as the hammer stick — the core idea hasn't changed in over a century, only the machinery underneath it.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-year">Early 1900s</div>
+        <h4>The strongman tester joins the traveling fair</h4>
+        <p>Traveling carnivals introduce a mechanical strength tester as a sideshow attraction, pairing a mallet, a spring-loaded pad, and a rising weight to turn brute force into a public spectacle.</p>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-year">Mid-1900s</div>
+        <h4>The bell becomes the goal</h4>
+        <p>A bell mounted at the very top of the tower turns the game from a private strength test into a communal one — everyone within earshot knows exactly who rang it.</p>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-year">1970s–80s</div>
+        <h4>Animated characters climb the tower</h4>
+        <p>Cartoons and pop culture cement the high striker's image, and manufacturers begin decorating the scale with painted characters climbing toward the bell.</p>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-year">1990s</div>
+        <h4>Coin-operated and arcade versions arrive</h4>
+        <p>Smaller, coin-operated hammer games move indoors into arcades and bars, trading the spring-and-weight mechanism for compact hydraulic versions.</p>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-year">2000s</div>
+        <h4>Force sensors replace mechanical springs</h4>
+        <p>Digital load cells and LED scoreboards give operators precise, repeatable readings and let the game print or display an exact numeric score.</p>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-year">Today</div>
+        <h4>Leaderboards, branding, and touchless sensors</h4>
+        <p>Modern rigs connect to an app or screen, log every swing to a live leaderboard, and can be wrapped in full brand skins for corporate activations and product launches.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow pink"><span class="dot"></span> Mechanics</span>
+      <h2>How a hammer stick game actually works</h2>
+      <p>The whole sequence takes about a second and a half, but a lot happens between the swing and the score.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step-card">
+        <div class="step-num mono">01</div>
+        <div class="step-icon"><svg class="icon"><use href="#i-hammer"/></svg></div>
+        <h4>Grip the mallet</h4>
+        <p>A player takes the mallet in both hands and lines up their stance in front of the striking pad.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num mono">02</div>
+        <div class="step-icon"><svg class="icon"><use href="#i-target"/></svg></div>
+        <h4>Swing down hard</h4>
+        <p>A full overhead swing drives the mallet head straight down onto the center of the pad.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num mono">03</div>
+        <div class="step-icon"><svg class="icon"><use href="#i-bolt"/></svg></div>
+        <h4>The sensor reads the impact</h4>
+        <p>A spring, lever, or digital load cell converts the force of the strike into a single measurable value.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num mono">04</div>
+        <div class="step-icon"><svg class="icon"><use href="#i-scale"/></svg></div>
+        <h4>The puck rockets up the scale</h4>
+        <p>A weighted puck launches up the graduated tower to a height that matches the strength of the hit.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num mono">05</div>
+        <div class="step-icon"><svg class="icon"><use href="#i-bell"/></svg></div>
+        <h4>The bell rings — or it doesn't</h4>
+        <p>A strong enough swing sends the puck all the way to the bell; anything less settles back down the scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPES -->
+<section id="types">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Field Guide</span>
+      <h2>Six kinds of hammer stick games</h2>
+      <p>"High striker" now covers everything from a towering wooden carnival classic to a pocket-sized desktop version.</p>
+    </div>
+    <div class="type-grid reveal">
+      <div class="type-card">
+        <div class="type-icon"><svg class="icon"><use href="#i-hammer"/></svg></div>
+        <h4>Classic Carnival High Strikers</h4>
+        <p>The towering wooden original — spring-loaded pad, painted scale, and a real bronze bell at the very top.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-icon"><svg class="icon"><use href="#i-gauge"/></svg></div>
+        <h4>Digital LED Force Testers</h4>
+        <p>A load-cell sensor and an LED tower replace the spring and weight, giving an exact numeric readout on every swing.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-icon"><svg class="icon"><use href="#i-scale"/></svg></div>
+        <h4>Electronic Punch-Meter Games</h4>
+        <p>The striking pad is swapped for a punch bag, measuring fist speed and force instead of a hammer swing.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-icon"><svg class="icon"><use href="#i-vr"/></svg></div>
+        <h4>VR Strength Simulators</h4>
+        <p>A motion-tracked headset and controller recreate the swing and bell-ring in a fully virtual arcade booth.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-icon"><svg class="icon"><use href="#i-mini"/></svg></div>
+        <h4>Miniature Tabletop Versions</h4>
+        <p>A palm-sized novelty striker built for desks and bars, swung with a finger-sized mallet instead of a full swing.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-icon"><svg class="icon"><use href="#i-trophy"/></svg></div>
+        <h4>App-Connected Leaderboard Rigs</h4>
+        <p>A networked striker that logs every swing to a live leaderboard on a screen or phone, built for tournaments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- LIVE SETUP / SIGNATURE + VIDEO -->
+<section id="live">
+  <div class="wrap">
+    <div class="live-wrap reveal">
+      <div class="live-top">
+        <div>
+          <span class="eyebrow pink"><span class="dot"></span> Live Setup</span>
+          <h2 style="margin-top:16px; font-size:clamp(24px,3.2vw,32px);">A hammer stick, live and swingable</h2>
+          <p style="color:var(--muted); max-width:520px; margin-top:12px;">This is the real thing — click the hammer to take a full swing. The puck launches, the tower lights up, sparks spray into the air, and your score lands on the board in real time.</p>
+          <div class="live-badges">
+            <span class="badge"><svg><use href="#i-hammer"/></svg> Real swing physics</span>
+            <span class="badge"><svg><use href="#i-bolt"/></svg> Instant scoring</span>
+            <span class="badge"><svg><use href="#i-sparkle"/></svg> Joy sparks on every hit</span>
+            <span class="badge"><svg><use href="#i-bell"/></svg> Bell on a max hit</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="live-stage-outer">
+        <div class="striker-stage" id="liveStage">
+          <div class="striker-float" style="animation-duration:6s;">
+            <div class="striker-tilt" id="liveTilt">
+              <div class="tower-pole" id="livePole">
+                <div class="tower-bell" id="liveBell"><svg class="icon" style="width:14px;height:14px;stroke:#3a2400"><use href="#i-bell"/></svg></div>
+                <div class="scale-seg top-seg" style="bottom:272px;"></div>
+                <div class="scale-seg" style="bottom:242px;"></div>
+                <div class="scale-seg" style="bottom:212px;"></div>
+                <div class="scale-seg" style="bottom:182px;"></div>
+                <div class="scale-seg" style="bottom:152px;"></div>
+                <div class="scale-seg" style="bottom:122px;"></div>
+                <div class="scale-seg" style="bottom:92px;"></div>
+                <div class="scale-seg" style="bottom:62px;"></div>
+                <div class="scale-seg" style="bottom:32px;"></div>
+                <div class="scale-seg" style="bottom:2px;"></div>
+                <div class="tower-puck" id="livePuck"></div>
+              </div>
+              <div class="striker-base">
+                <div class="striker-pad"></div>
+                <div class="base-plaque">TEST YOUR MIGHT</div>
+              </div>
+              <div class="striker-hammer" id="liveHammer" onclick="swingHammer('live')">
+                <div class="hammer-handle"></div>
+                <div class="hammer-head"></div>
+              </div>
+              <div class="impact-flash" id="liveImpact"></div>
+              <div class="sparkle-field" id="liveSparkles"></div>
+            </div>
+          </div>
+          <div class="score-panel">
+            <div class="score-value" id="liveScore">000</div>
+            <div class="score-tier" id="liveTier">Ready to swing</div>
+          </div>
+          <div class="striker-hint" onclick="swingHammer('live')"><svg class="icon" style="width:14px;height:14px"><use href="#i-hammer"/></svg> Click the hammer to swing</div>
+        </div>
+      </div>
+
+      <div class="video-shell">
+        <div class="ratio">
+          <!-- Demo video — swap the src below with your own hammer stick reel -->
+          <iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" title="Hammer stick high striker demo video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-caption">
+          <span>HAMMERSTICK · Live Session Reel</span>
+          <span class="live-dot"><span class="dot"></span> DEMO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OCCASIONS -->
+<section id="occasions">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Occasions</span>
+      <h2>Where a hammer stick fits right in</h2>
+    </div>
+    <div class="chip-cloud reveal">
+      <span class="chip">County Fairs</span>
+      <span class="chip">Corporate Team Events</span>
+      <span class="chip">Birthday Parties</span>
+      <span class="chip">Bars & Pubs</span>
+      <span class="chip">Gyms & Fitness Expos</span>
+      <span class="chip">School Fun Fairs</span>
+      <span class="chip">Product Launches</span>
+      <span class="chip">Wedding Receptions</span>
+      <span class="chip">Charity Fundraisers</span>
+      <span class="chip">Trade Show Booths</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES + BUSINESS -->
+<section id="features">
+  <div class="wrap two-col">
+    <div class="reveal">
+      <span class="eyebrow pink"><span class="dot"></span> Built-in Intelligence</span>
+      <h2 style="margin-top:16px; font-size:26px;">What makes a modern striker feel fair</h2>
+      <p style="color:var(--muted); margin-top:12px; font-size:15px;">The details that separate a genuinely accurate rig from a spring that's rigged too tight.</p>
+      <ul class="feature-list" style="margin-top:24px;">
+        <li>
+          <div class="f-icon"><svg class="icon" style="width:17px;height:17px"><use href="#i-gauge"/></svg></div>
+          <div><h4>Calibrated force sensing</h4><p>A load cell measures true impact force so every swing is scored on the same fair scale.</p></div>
+        </li>
+        <li>
+          <div class="f-icon"><svg class="icon" style="width:17px;height:17px"><use href="#i-scale"/></svg></div>
+          <div><h4>Tiered scoring labels</h4><p>Scores map to fun tier names, from "getting there" to "legendary," instead of a flat number.</p></div>
+        </li>
+        <li>
+          <div class="f-icon"><svg class="icon" style="width:17px;height:17px"><use href="#i-bell"/></svg></div>
+          <div><h4>Sound and light feedback</h4><p>A ringing bell, chime, or light chase makes a max swing feel like a genuine achievement.</p></div>
+        </li>
+        <li>
+          <div class="f-icon"><svg class="icon" style="width:17px;height:17px"><use href="#i-trophy"/></svg></div>
+          <div><h4>Live leaderboard tracking</h4><p>Every swing can log to a screen so the top score of the day stays on display.</p></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span> For Brands &amp; Business</span>
+      <h2 style="margin-top:16px; font-size:26px;">A crowd magnet with a competitive streak</h2>
+      <p style="color:var(--muted); margin-top:12px; font-size:15px;">Few games draw an audience as reliably as watching someone try to ring the bell.</p>
+      <ul class="feature-list" style="margin-top:24px;">
+        <li>
+          <div class="f-icon"><svg class="icon" style="width:17px;height:17px"><use href="#i-share"/></svg></div>
+          <div><h4>Shareable score cards</h4><p>A top swing can print or send a shareable score card straight to a guest's phone.</p></div>
+        </li>
+        <li>
+          <div class="f-icon"><svg class="icon" style="width:17px;height:17px"><use href="#i-hammer"/></svg></div>
+          <div><h4>Branded tower skins</h4><p>The scale, pad, and bell housing can all be wrapped in a company's colors and logo.</p></div>
+        </li>
+        <li>
+          <div class="f-icon"><svg class="icon" style="width:17px;height:17px"><use href="#i-print"/></svg></div>
+          <div><h4>Data at the swing</h4><p>Optional sign-in screens capture guest emails or handles before the first swing.</p></div>
+        </li>
+        <li>
+          <div class="f-icon"><svg class="icon" style="width:17px;height:17px"><use href="#i-users"/></svg></div>
+          <div><h4>Built-in spectacle</h4><p>The height, the bell, and the swing itself naturally draw a crowd around the booth.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- CHOOSING -->
+<section id="choosing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow pink"><span class="dot"></span> Buyer's Guide</span>
+      <h2>Choosing the right hammer stick for your event</h2>
+      <p>Not every rig suits every crowd. A few things worth checking before booking one.</p>
+    </div>
+    <div class="two-col reveal">
+      <div class="check-card">
+        <h3>Before you book</h3>
+        <div class="check-item"><svg class="icon"><use href="#i-check"/></svg><span>Ceiling height for the full tower, bell included</span></div>
+        <div class="check-item"><svg class="icon"><use href="#i-check"/></svg><span>Expected crowd size and how fast the line needs to move</span></div>
+        <div class="check-item"><svg class="icon"><use href="#i-check"/></svg><span>Indoor vs. outdoor setup and a stable, level base</span></div>
+        <div class="check-item"><svg class="icon"><use href="#i-check"/></svg><span>Digital scoring vs. classic mechanical spring and weight</span></div>
+        <div class="check-item"><svg class="icon"><use href="#i-check"/></svg><span>Whether a spotter or attendant is included for safety</span></div>
+      </div>
+      <div class="check-card">
+        <h3>What a great setup looks like</h3>
+        <div class="check-item"><svg class="icon"><use href="#i-check"/></svg><span>A calibrated sensor that scores swings consistently</span></div>
+        <div class="check-item"><svg class="icon"><use href="#i-check"/></svg><span>A padded, non-slip striking area for guest safety</span></div>
+        <div class="check-item"><svg class="icon"><use href="#i-check"/></svg><span>A genuinely satisfying bell, chime, or light effect on a max hit</span></div>
+        <div class="check-item"><svg class="icon"><use href="#i-check"/></svg><span>Custom branding across the tower and scoreboard</span></div>
+        <div class="check-item"><svg class="icon"><use href="#i-check"/></svg><span>Transparent pricing with a clear setup and safety plan</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUN FACTS -->
+<section id="facts">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Fun Facts</span>
+      <h2>A few things worth knowing</h2>
+    </div>
+    <div class="fact-grid reveal">
+      <div class="fact-card">
+        <div class="fact-num">~9 ft</div>
+        <p>A typical carnival high striker tower stands close to nine feet tall from base to bell, tall enough to demand a full overhead swing.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-num">1000</div>
+        <p>Most digital scoreboards top out at a round number like 1000, reserving the very top tier for a genuinely rare, legendary swing.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-num">1 hit</div>
+        <p>Unlike most carnival games, the entire result comes down to a single swing — no aiming, no luck, just one honest shot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow pink"><span class="dot"></span> FAQ</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="reveal" style="max-width:760px;">
+      <div class="faq-item">
+        <button class="faq-q">Is the score based on real force or is it random?<span class="plus">+</span></button>
+        <div class="faq-a"><p>On a properly calibrated rig, the score is a direct read of impact force from the sensor — the harder the swing, the higher the puck travels, every time.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How much space does a hammer stick need?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Enough ceiling clearance for the full tower and bell, plus a few feet of open floor around the base for a safe swing radius.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can the tower and scoreboard be branded?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes — most rigs can be wrapped with a custom scale design, pad color, and logo across the base and bell housing.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is it safe for guests who aren't very strong?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes — the mallet and pad are designed for a full range of swing strength, and a lighter swing simply sends the puck a shorter distance.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Ready to bring a hammer stick to your event?</h2>
+      <p>From classic wooden carnival towers to app-connected leaderboard rigs, there's a high striker built for every crowd.</p>
+      <a class="btn btn-primary" href="#live">Take a swing</a>
+    </div>
+  </div>
+</section>
+
+<!-- MORE ARTICLES -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> More from HAMMERSTICK</span>
+      <h2 style="font-size:24px;">Keep exploring</h2>
+    </div>
+    <div class="more-grid reveal">
+      <div class="more-card">
+        <span class="eyebrow pink" style="font-size:10px;">Trends</span>
+        <h4 style="margin-top:12px;">Live Leaderboards: The New Standard for Carnival Games</h4>
+      </div>
+      <div class="more-card">
+        <span class="eyebrow" style="font-size:10px;">Planning</span>
+        <h4 style="margin-top:12px;">How Much Ceiling Height Does a High Striker Really Need?</h4>
+      </div>
+      <div class="more-card">
+        <span class="eyebrow pink" style="font-size:10px;">Production</span>
+        <h4 style="margin-top:12px;">Mechanical vs. Digital Strikers: Which Wins the Crowd?</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="brand">
+        <div class="brand-mark"><svg viewBox="0 0 24 24"><use href="#i-hammer"/></svg></div>
+        HAMMERSTICK
+      </div>
+      <div class="social-row">
+        <a href="#" aria-label="Instagram"><svg class="icon" style="width:17px;height:17px"><use href="#i-trophy"/></svg></a>
+        <a href="#" aria-label="Share"><svg class="icon" style="width:17px;height:17px"><use href="#i-share"/></svg></a>
+        <a href="#" aria-label="Watch"><svg class="icon" style="width:17px;height:17px"><use href="#i-play"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 HAMMERSTICK Journal — A living guide to high striker culture.</span>
+      <span>Built for the one swing that counts.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script/hammer.js"></script>
+
+</body>
+</html>
